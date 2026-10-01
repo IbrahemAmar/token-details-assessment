@@ -6,6 +6,9 @@ import {
   FETCH_TOKEN_LIST_REQUEST,
   fetchTokenListSuccess,
   fetchTokenListFail,
+  FETCH_TOKEN_DETAIL_REQUEST,
+  fetchTokenDetailSuccess,
+  fetchTokenDetailFail,
 } from "../actions/tokenAction";
 
 function* fetchTokenList() {
@@ -41,9 +44,22 @@ function* fetchTokenList() {
   }
 }
 
+function* fetchTokenDetail(action) {
+  try {
+    const response = yield axios.get(
+      `https://swap-api.thetatoken.org/swap/token/${action.payload}`
+    );
+    const { tokens, pairs } = response.data.body;
+    yield put(fetchTokenDetailSuccess({ token: tokens[0], pairs }));
+  } catch (error) {
+    yield put(fetchTokenDetailFail(error.message));
+  }
+}
+
 // Watcher saga
 function* tokenSaga() {
   yield takeLatest(FETCH_TOKEN_LIST_REQUEST, fetchTokenList);
+  yield takeLatest(FETCH_TOKEN_DETAIL_REQUEST, fetchTokenDetail);
 }
 
 export default tokenSaga;

@@ -271,3 +271,74 @@
   font-family: "altivo";
   font-weight: 400;
 }
+
+/* Token details panel (right-hand side) */
+.token-details-panel {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.token-details-title {
+  color: #00a3cc;
+  margin: 10px 0;
+}
+
+.token-details-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #191919;
+}
+
+.token-details-item:hover {
+  background-color: #191919;
+}
+
+.token-details-item img,
+.token-details-header img {
+  width: 20px;
+  border-radius: 50%;
+}
+
+.token-details-name {
+  color: grey;
+  font-size: small;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.token-details-back {
+  background: none;
+  border: 1px solid #00a3cc;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.token-details-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.token-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #191919;
+}
+
+.token-detail-label {
+  color: grey;
+}
+
+.token-detail-row a {
+  color: #00a3cc;
+}

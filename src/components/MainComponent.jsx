@@ -9,6 +9,7 @@ import {
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { TVChartContainer } from "./common/TVChartContainer";
 import Table from "./Table";
+import TokenDetails from "./TokenDetails";
 import "./style.css";
 
 const MainComponent = () => {
@@ -46,7 +47,11 @@ const MainComponent = () => {
       </Grid>
 
       {/* Menu or additional content */}
-      {isMenuOpen && <Grid item xs={3} className="font-header"></Grid>}
+      {isMenuOpen && (
+        <Grid item xs={3} className="font-header">
+          <TokenDetails />
+        </Grid>
+      )}
     </Grid>
   );
 };
